@@ -1,0 +1,39 @@
+﻿<Controls:MetroWindow x:Class="OutputSpy.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:local="clr-namespace:OutputSpy"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      mc:Ignorable="d"
+                      Title="OutputSpy"
+                      Height="350"
+                      Width="525">
+    <!--<Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock>Chemin de l'application à démarrer</TextBlock>
+            <TextBox Text="{Binding ProcessName}" />
+            <TextBlock>Chemin des données en entrée</TextBlock>
+            <TextBox Text="{Binding InputFileName}" />
+            <Button Click="Button_Click">Démarrer l'application</Button>
+            <Button Click="Input_Click">Envoyer données sur l'entrée</Button>
+            <TextBlock Text="Sortie :" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1"
+                      x:Name="uxScroll">
+            <RichTextBox x:Name="uxTextBox">
+                <FlowDocument x:Name="uxFlowDocument">
+                    <!--<Paragraph x:Name="uxParagraph" />-->
+                </FlowDocument>
+            </RichTextBox>
+        </ScrollViewer>
+        <!--<TextBox />-->
+    </Grid>
+</Controls:MetroWindow>
